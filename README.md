@@ -1,59 +1,77 @@
 # Interlink Properties
 
-Static landing page for Interlink Properties, Faridabad. Serves as the Google Ads
+Landing page for Interlink Properties, Faridabad. Serves as the Google Ads
 destination and verification URL (the ad's phone number must appear on this page).
 
 Live: https://interlinkproperties.in
-Hosting: GitHub Pages (free). Domain: GoDaddy.
+Hosting: GitHub Pages via Actions (deploys `website/` on every push to `main`).
+Domain: GoDaddy.
+
+## Structure
+
+```
+website/            the site (only this folder is deployed)
+  index.html        markup
+  css/styles.css    all styles; brand tokens in :root at the top
+  js/data.js        EDIT THIS: property listings + all EN/HI text
+  js/main.js        logic (language toggle, listings, animations)
+  assets/           photos, icons, og-image, self-hosted font
+.github/workflows/pages.yml   deploy workflow
+```
+
+Photos and brand source material stay outside the repo history (`.gitignore`).
+
+## Brand
+
+Taken from the physical shop sign: charcoal (#23272c), white lowercase type,
+yellow accent (#f7b500, from the BUY|SELL|RENT board). Font: Manrope
+(self-hosted latin subset; Hindi uses system Devanagari fonts). The mark is a
+yellow roof chevron with a white door dot on a charcoal tile, inline SVG in
+index.html and drawn as PNG for favicon/apple-touch/og.
 
 ## Editing
 
-Everything lives in `index.html`: markup, CSS, and JS in one file, no build step
-and no dependencies. Edit it, commit, push. GitHub Pages redeploys in about a minute.
+### Property listings and text
 
-## Design theme
+Everything editable lives in `website/js/data.js`: the `LISTINGS` array
+(the page shows a random 4 per load) and the `I18N` EN/HI strings.
 
-The look comes from the brand assets in `brand/` (logo + visiting card): blue
-watercolour texture, golden yellow accents, white text, lowercase Quicksand
-display type.
-
-- `brand/` holds the source assets (logo.jpg, visiting card front/back). Do not
-  serve these directly; they are large.
-- `assets/` holds the optimized derivatives the page actually loads: logo at
-  192px, favicon, apple touch icon, og-image (1200x630), two watercolour
-  textures cropped from the card (`wc-deep.jpg` hero/reviews, `wc-light.jpg`
-  listings decoration), and the self-hosted Quicksand woff2 (latin subset only;
-  Hindi falls back to system Devanagari fonts).
-- Brand colors are CSS variables in `:root` at the top of the stylesheet.
-- Keep Lighthouse scores above 90: font stays self-hosted and preloaded, hero
-  texture stays preloaded and small (~35 KB), icons are inline SVG, images keep
-  explicit width/height.
-
-### Updating the property listings
-
-Find the `LISTINGS` array near the bottom of `index.html`. The page shows a random
-4 of these on each load.
-
-Keep every entry deliberately non-identifiable, so competing agents cannot work out
-which property it is:
+Keep every listing deliberately non-identifiable, so competing agents cannot
+work out which property it is:
 
 - General area only ("Sector 15 area"), never a plot number or exact road
 - Size and price as ranges, never exact figures
 - One short hook line, in English and Hindi
 
-The current 20 entries are SAMPLE DATA. Replace them with vague versions of real
-inventory before relying on them, so callers always reach a real conversation.
+The current 20 entries are SAMPLE DATA. Replace them with vague versions of
+real inventory (see `questions-for-dad.md` at the repo root, untracked).
 
 ### Other common edits
 
-- Phone number: appears in `tel:` links, `wa.me` links, and the JSON-LD block. It
-  must stay identical to the number in the Google Ads campaign.
-- Hindi text: the `I18N.hi` object holds every translated string.
-- Business hours: the `.hours` block plus `openingHours` in the JSON-LD.
-- GSTIN: footer `.gst` block.
+- Phone number: appears in `tel:` links, `wa.me` links, and the JSON-LD block
+  in index.html. It must stay identical to the number in the Google Ads
+  campaign (+91 98990 14501, the only number used in text).
+- Business hours: `conHours` strings in data.js plus `openingHours` in the
+  JSON-LD.
+- GSTIN: footer `.gst` block once available.
+- Photos: originals in `office photos/` (untracked); web derivatives generated
+  into `website/assets/img/` (resized, EXIF-rotated, jpg+webp).
+
+## Performance / SEO invariants
+
+Keep Lighthouse at 100: font stays self-hosted and preloaded, hero image uses
+srcset + fetchpriority, icons are inline SVG, all images have explicit
+width/height. SEO files: robots.txt, sitemap.xml, canonical, JSON-LD
+RealEstateAgent (with founder), og/twitter tags.
+
+Known limitation: Hindi is a client-side toggle, so Google indexes only the
+English text. Fine while traffic is Ads-driven; revisit with a real `/hi/`
+page only if organic Hindi traffic becomes a goal.
 
 ## Notes
 
 - Do not use em dashes or en dashes in customer-facing copy.
 - The Google Maps embed and the reviews link are keyless, so nothing to rotate.
 - Reviews are quoted from the real Google Business Profile. Keep them verbatim.
+- Devanagari text must not get letter-spacing (breaks conjuncts); a CSS rule
+  handles this for `html[lang="hi"]`.

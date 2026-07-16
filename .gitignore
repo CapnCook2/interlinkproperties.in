@@ -1,0 +1,9 @@
+.DS_Store
+.claude/
+node_modules/
+
+# Local-only source material (originals live outside the repo history)
+office photos/
+logo.jpg
+visitng-card-*.png
+questions-for-dad.md
