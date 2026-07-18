@@ -20,7 +20,7 @@
         "name": "Ads Conversion ID",
         "type": "c",
         "parameter": [
-          { "type": "TEMPLATE", "key": "value", "value": "AW-816057246" }
+          { "type": "TEMPLATE", "key": "value", "value": "816057246" }
         ]
       },
       {
@@ -64,7 +64,7 @@
         "accountId": "0",
         "containerId": "0",
         "triggerId": "10",
-        "name": "Click - Phone (tel:) link",
+        "name": "Click - Phone (tel) link",
         "type": "LINK_CLICK",
         "filter": [
           {

@@ -43,10 +43,16 @@ After creating, open each action → "Use Google Tag Manager" → note the **Con
 3. Workspace: Existing → Default Workspace. Option: **Merge / Overwrite conflicting** (empty container, so either is fine).
 4. Confirm. You should see: 6 tags, 2 triggers, 4 variables.
 5. Open Variables → fill in the remaining constants (`Ads Conversion ID` =
-   `AW-816057246` and `GA4 Measurement ID` = `G-1SH3KXHGCV` are already real
+   `816057246` and `GA4 Measurement ID` = `G-1SH3KXHGCV` are already real
    in the JSON):
    - `Ads Label - Call Click` = label of "Phone call click"
    - `Ads Label - WhatsApp Click` = label of "WhatsApp click"
+
+   Gotcha (hit once already): the Conversion ID constant must be digits only.
+   GTM's Ads conversion tag prepends `AW-` itself; storing `AW-816057246`
+   produces a malformed `AW-AW-816057246` destination and conversions
+   silently go nowhere. Tag Assistant's top-bar chip shows the final
+   destination, so verify it reads `AW-816057246` there.
 
 If the import errors (hand-authored export files occasionally trip validation), the manual equivalent is small; see "Manual fallback" below.
 
