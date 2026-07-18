@@ -16,7 +16,7 @@ Total console time: ~15 minutes. Do the steps in order; later steps need IDs fro
 1. Admin → Create → Property: name `Interlink Properties`, timezone India, currency INR.
 2. Business details: Real Estate, small. Skip goals or pick "Generate leads".
 3. Add a **Web** data stream for `https://interlinkproperties.in`.
-4. Note the **Measurement ID** (`G-XXXXXXXXXX`).
+4. Note the **Measurement ID** (`G-1SH3KXHGCV`).
 5. Leave "Enhanced measurement" on (free page-view/scroll data, no downside here).
 
 ## 3. Create the two conversion actions (ads.google.com, account 515-222-6123)
@@ -42,11 +42,11 @@ After creating, open each action → "Use Google Tag Manager" → note the **Con
 2. File: `tracking/gtm-container.json` from this repo.
 3. Workspace: Existing → Default Workspace. Option: **Merge / Overwrite conflicting** (empty container, so either is fine).
 4. Confirm. You should see: 6 tags, 2 triggers, 4 variables.
-5. Open Variables → fill in the remaining constants with real values
-   (`Ads Conversion ID` is already set to the real `AW-816057246` in the JSON):
+5. Open Variables → fill in the remaining constants (`Ads Conversion ID` =
+   `AW-816057246` and `GA4 Measurement ID` = `G-1SH3KXHGCV` are already real
+   in the JSON):
    - `Ads Label - Call Click` = label of "Phone call click"
    - `Ads Label - WhatsApp Click` = label of "WhatsApp click"
-   - `GA4 Measurement ID` = `G-XXXXXXXXXX` (step 2)
 
 If the import errors (hand-authored export files occasionally trip validation), the manual equivalent is small; see "Manual fallback" below.
 
