@@ -8,7 +8,7 @@ Total console time: ~15 minutes. Do the steps in order; later steps need IDs fro
 
 1. Create Account: name `Interlink Properties`, country India.
 2. Container: name `interlinkproperties.in`, target platform **Web**.
-3. Note the container ID (`GTM-XXXXXXX`, shown top bar).
+3. Note the container ID (`GTM-TGTC6VC5`, shown top bar).
 4. Skip the install-code popup; the site already has the loader.
 
 ## 2. Create the GA4 property (analytics.google.com)
@@ -52,13 +52,9 @@ If the import errors (hand-authored export files occasionally trip validation), 
 
 ## 5. Put the container ID in the site and deploy
 
-In `website/index.html`, find the Google Tag Manager comment and set the empty `id` string:
-
-```js
-(function(){var id='GTM-XXXXXXX';
-```
-
-Commit and push to main; GitHub Pages redeploys. This is the only code change ever needed; everything after this is configured in the GTM web UI.
+Done: `website/index.html` has `id='GTM-TGTC6VC5'` on this branch. Merging the
+PR to main deploys it. This was the only code change ever needed; everything
+after this is configured in the GTM web UI.
 
 ## 6. Test, then publish
 
