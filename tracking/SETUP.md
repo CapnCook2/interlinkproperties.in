@@ -2,6 +2,26 @@
 
 Goal: count **phone-link clicks** and **WhatsApp-link clicks** as Google Ads conversions, plus GA4 analytics. No number swapping, no backend. The site side is already done: `website/index.html` has a guarded GTM loader that stays inert until you paste a container ID into it.
 
+## Status (2026-07-18)
+
+Done: GTM container `GTM-TGTC6VC5` created and imported, GA4 property
+`G-1SH3KXHGCV` created, site deployed with the armed loader, Tag Assistant
+preview verified all 6 tags fire on the right clicks.
+
+Remaining, all in the GTM web UI (Variables tab), then publish:
+
+1. `Ads Conversion ID`: change `AW-816057246` to `816057246` (digits only;
+   see the gotcha in step 4).
+2. `Ads Label - Call Click`: replace `REPLACE_ME` with the conversion label
+   of the "Phone call click" action. Find it at ads.google.com → Goals →
+   Conversions → Summary → click the action name → Tag setup → "Use Google
+   Tag Manager". It is a short token like `aBcD3fGhIjKlMnOp`.
+3. `Ads Label - WhatsApp Click`: same, from the "WhatsApp click" action.
+4. Re-run Preview: top-bar chip must read `AW-816057246` (not `AW-AW-...`).
+5. **Submit → Publish**. Nothing reaches real visitors until this.
+
+The numbered sections below are the full from-scratch reference.
+
 Total console time: ~15 minutes. Do the steps in order; later steps need IDs from earlier ones.
 
 ## 1. Create the GTM container (tagmanager.google.com)
