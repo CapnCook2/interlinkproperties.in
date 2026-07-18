@@ -20,7 +20,7 @@
         "name": "Ads Conversion ID",
         "type": "c",
         "parameter": [
-          { "type": "TEMPLATE", "key": "value", "value": "AW-REPLACE_ME" }
+          { "type": "TEMPLATE", "key": "value", "value": "AW-816057246" }
         ]
       },
       {

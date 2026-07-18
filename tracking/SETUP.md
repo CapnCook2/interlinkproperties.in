@@ -42,8 +42,8 @@ After creating, open each action → "Use Google Tag Manager" → note the **Con
 2. File: `tracking/gtm-container.json` from this repo.
 3. Workspace: Existing → Default Workspace. Option: **Merge / Overwrite conflicting** (empty container, so either is fine).
 4. Confirm. You should see: 6 tags, 2 triggers, 4 variables.
-5. Open Variables → fill in the 4 constants with real values:
-   - `Ads Conversion ID` = `AW-XXXXXXXXX` (step 3)
+5. Open Variables → fill in the remaining constants with real values
+   (`Ads Conversion ID` is already set to the real `AW-816057246` in the JSON):
    - `Ads Label - Call Click` = label of "Phone call click"
    - `Ads Label - WhatsApp Click` = label of "WhatsApp click"
    - `GA4 Measurement ID` = `G-XXXXXXXXXX` (step 2)
