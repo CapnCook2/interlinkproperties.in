@@ -17,6 +17,7 @@ website/            the site (only this folder is deployed)
   js/main.js        logic (language toggle, listings, animations)
   assets/           photos, icons, og-image, self-hosted font
 .github/workflows/pages.yml   deploy workflow
+tracking/           Google Ads/GA4 conversion tracking config (not deployed)
 ```
 
 Photos and brand source material stay outside the repo history (`.gitignore`).
@@ -67,6 +68,16 @@ RealEstateAgent (with founder), og/twitter tags.
 Known limitation: Hindi is a client-side toggle, so Google indexes only the
 English text. Fine while traffic is Ads-driven; revisit with a real `/hi/`
 page only if organic Hindi traffic becomes a goal.
+
+## Conversion tracking
+
+Google Ads conversions are click-to-call (`tel:`) and click-to-WhatsApp
+(`wa.me`) link clicks, tracked via Google Tag Manager; GA4 rides along for
+analytics. `website/index.html` has a guarded GTM loader (inert until the
+container ID is pasted in). All tag/trigger config lives in the GTM web UI,
+seeded from `tracking/gtm-container.json`. Setup and testing steps:
+`tracking/SETUP.md`. Deliberately no Google call tracking: it swaps the
+displayed phone number, and the real number must stay visible (see above).
 
 ## Notes
 
