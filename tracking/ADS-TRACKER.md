@@ -363,3 +363,195 @@ Things worth confirming yourself, with what to expect:
 | 6 | Restored missing Thursday in the ad schedule | Google Ads |
 
 Nothing was deleted.
+
+---
+
+# Session 2026-07-19 (part 2)
+
+Goal restated: quality calls and WhatsApp messages from Faridabad buyers/sellers,
+plus NRI sellers abroad, under INR 333/day. Execute the "next hour of effort"
+items and remaining optimizations.
+
+## 8. Tracking verified end to end, live (the "no data in GA4" question answered)
+
+Himank reported GA4 still shows no metrics and that his Chrome has **no ad
+blocker**. Both true, and nothing is broken:
+
+- Loaded interlinkproperties.in in his Chrome and watched the network log:
+  gtag beacon fired with the correct `tid=G-MSHD09RL53`, `en=page_view`.
+- The beacon returns **HTTP 503**, but the 503 is cosmetic: probe events sent
+  from the same page ALSO logged 503 yet appeared in GA4 Realtime seconds
+  later. Google ingests these hits despite the status code (they go via the
+  `analytics.google.com` signed-in path, `ngs=1`). The previous session's
+  "ad blocker" conclusion was wrong; corrected here.
+- **GA4 Realtime for property 256366131 showed: 1 active user, `page_view`,
+  `session_start`, `first_visit`, and both key events `clicks_call` and
+  `click_whatsapp`** (the WhatsApp one fired by a test click this session; the
+  `clicks_call` appeared without any test click, i.e. almost certainly a real
+  visitor pressing Call within the last 30 minutes).
+
+So: data IS flowing. The "No data received" banner and empty standard reports
+are the normal 24 to 48 hour processing lag for a stream created yesterday.
+Realtime is the truth and Realtime works. Nothing further to fix. Expect
+standard reports to populate by ~21 Jul, and the two GA4 conversion actions in
+Ads to leave "Awaiting conversions" as events accumulate.
+
+## 9. Added 16 phrase-match keywords to Leads-Search-6 (active ad group)
+
+Reviewed the campaign's full keyword list first (143 keywords, 2 ad groups).
+The active ad group `interlinkproperties.in` was ALL broad match generics, some
+of them US-style phrasing that money was leaking through ("houses on the
+market" at ₹35.13 CPC, "property agents" at ₹21.89). It had **zero**
+sector-level keywords despite "sector 21 faridabad" being the best term in the
+account (68.29% CTR, ₹1.48). The paused "Ad group 1" holds the old generic
+list; left paused, untouched.
+
+Added to ad group `interlinkproperties.in`, all **phrase match** (campaign id
+24039729727):
+
+- Sectors the site serves: "sector 14 faridabad", "sector 15 faridabad",
+  "sector 15a faridabad", "sector 16 faridabad", "sector 17 faridabad",
+  "sector 21 faridabad", "sector 28 faridabad", "sector 29 faridabad"
+  (phrase match also catches longer queries like "property in sector 15
+  faridabad", so no separate variants needed)
+- High intent local: "property dealer faridabad", "property dealer near me",
+  "plots in faridabad", "flats in faridabad", "buy property in faridabad",
+  "sell property in faridabad", "kothi for sale in faridabad"
+- NRI: "nri property dealer faridabad"
+
+All 16 saved, status "Pending / Under review" (normal for new keywords).
+Declined Google's inline suggestion to convert them to broad match; phrase is
+deliberate on this budget. Existing broad keywords left as is (deleting or
+pausing them is Himank's call; see the broad-match note in section 12).
+
+## 10. Added 10 campaign negatives (portal brands + competitor)
+
+Added to Leads-Search-6 campaign-level negatives (the campaign already had
+~290): `magicbricks`, `99acres`, `99 acres`, `nobroker`, `no broker`,
+`housing.com`, `olx`, `square yards`, `squareyards`, `kala malhotra`
+(competitor name that took 20 impressions, 0 clicks). All broad match
+negatives. Rationale: portal-brand searches are people looking for a website,
+not a dealer; `magicbricks` alone cost ₹51.75 for one click historically.
+
+## 11. NRI targeting: already reachable, no location change needed
+
+Checked Leads-Search-6 location settings for the NRI-seller goal:
+
+- Target: Faridabad, Haryana (city, reach ~3.11M), custom locations.
+- Location option is already **"Presence or interest"**, which is exactly what
+  NRI reach requires: an NRI in Dubai or the US searching "sell property in
+  faridabad" or "sector 15 faridabad" shows interest in the targeted location
+  and can be served the ad. No change made.
+- NRI keyword "nri property dealer faridabad" added (section 9), and the new
+  second ad carries the headline "NRI Property Solutions" and description
+  "Trusted by NRI clients for safe and transparent transactions."
+
+**Excluded locations (8), left untouched, worth knowing about:** postcode
+121102 (Ballabgarh side of Faridabad), Delhi, Ghaziabad, Greater Noida,
+Gurugram, Noida, Palwal, Pirthla. The pattern is coherent (exclude metro
+neighbours + the cheaper southern belt to focus spend on Faridabad city
+proper), so I treated it as deliberate. Trade-off to be aware of: a Delhi NCR
+resident wanting to BUY property in Faridabad is also excluded. If buyer leads
+from NCR matter, remove the Delhi/Noida/Gurugram exclusions; if lead quality
+from Faridabad-present searchers matters more, keep as is. Himank's call.
+
+## 12. Added a second responsive search ad to Leads-Search-6 (ad id 817528620478)
+
+The active ad group had exactly one RSA; a second gives Google something to
+test against. Used Google's site-generated prefills (verified factual against
+the website, including the office address) and replaced four assets:
+
+- "Looking for houses?" → "All Faridabad Sectors Covered"
+- "Wide Range of Properties" → "Sell Your Faridabad Property"
+- "Contact Us Today" → "WhatsApp Us Anytime"
+- Description "Interlink Properties office on 12-15 Dividing Road, Faridabad"
+  → "Call or WhatsApp us for honest guidance across all Faridabad sectors."
+
+Final headline set includes "NRI Property Solutions", "Serving Faridabad Since
+2009" (claim verified: foundingDate 2009 in site JSON-LD), "Call Us Now",
+sector coverage and sell-side lines. No em dashes anywhere.
+
+**Policy lesson recorded:** the first save was rejected with "Phone number in
+ad text" (ads cannot carry phone numbers in copy; the call asset provides the
+number instead, which the campaign already has with the real 9899014501).
+Removed the number from the description, re-saved, and the ad is now
+**Eligible** with no policy flags (ad strength recalculating, "Pending").
+The existing ad "Buy & Sell Property Now..." (66 clicks, 11.60% CTR) stays
+enabled alongside it.
+
+## 13. Demographics verified, one fix: Unknown age was excluded
+
+Himank's stated filters (exclude 18 to 24, 65+, Female) are all correctly in
+place on the active ad group `interlinkproperties.in`:
+
+- Gender: Female **Excluded**, Male Eligible, Unknown Eligible. Correct.
+- Age: 18-24 **Excluded**, 65+ **Excluded**. Correct.
+- Age **Unknown was ALSO excluded**, which was not part of the stated intent.
+  "Unknown" is not an age bracket; it is every user Google cannot classify, a
+  large share of Indian search traffic. It had a healthy 11.76% CTR before
+  exclusion. **Fixed: re-included Unknown age.** 18-24 and 65+ remain excluded.
+- Household income: only top 40% brackets are included; 41-50%, lower 50% and
+  Unknown income are excluded. Left as is: income targeting is not available
+  in India, so this setting is inert (the campaign served 953 impressions
+  despite Unknown-income being excluded, which proves Google ignores it here).
+  If Google ever extends income targeting to India this would suddenly bite;
+  noted for that eventuality.
+
+## 14. Disabled dangerous auto-apply recommendations (important)
+
+The account had Google's **auto-apply** enabled for 9 recommendation types,
+several of which could have silently undone this session's work:
+
+| Auto-apply type | Risk | Action |
+|---|---|---|
+| Improve your responsive search ads | Google rewrites ad copy on its own (could insert unsupported claims) | **Off** |
+| Remove redundant keywords | Would likely delete the new phrase keywords as "redundant" next to the old broad ones | **Off** |
+| Remove non-serving keywords | Auto-deletes keywords; deletion is reserved for Himank | **Off** |
+| Remove conflicting negative keywords | Could strip the portal-brand negatives just added | **Off** |
+| Use optimised targeting | Expands audience beyond the demographic filtering Himank set | **Off** |
+| Bid more efficiently with Maximise conversions | Auto-switches bid strategies | **Off** |
+| Add shop visits as an account default goal | Would dilute the Contact goal; smart bidding would chase store visits instead of calls/WhatsApp | **Off** |
+| Use optimised ad rotation | Harmless serving optimisation | Kept on |
+| Upgrade your conversion tracking (data-driven attribution) | Standard, beneficial | Kept on |
+
+Verified after reload: "Maintain your ads: 2 of 7 selected", "Grow your
+business: 0 of 14 selected".
+
+## 15. Recommendations page reviewed, none applied
+
+Current recommendations are all Google upsells that contradict the strategy:
+a new Performance Max campaign (just paused PMax deliberately), Display
+Expansion (spreads search budget into Display where call intent is lowest),
+Customer Match (needs a customer email/phone list that does not exist yet),
+and adding a business logo (needs Himank to upload one; harmless, worth doing
+someday). Optimisation score 91.5%; the missing points are those upsells.
+
+## Summary of part-2 changes (2026-07-19)
+
+| # | Change | Where |
+|---|---|---|
+| 8 | Verified tracking end to end from Himank's Chrome; GA4 Realtime shows clicks_call + click_whatsapp; "no data" = report lag, no ad blocker involved | GA4 |
+| 9 | Added 16 phrase-match keywords (8 sectors, local intent, NRI) to the active ad group | Leads-Search-6 |
+| 10 | Added 10 negatives (portal brands + competitor) | Leads-Search-6 |
+| 11 | Confirmed "Presence or interest" location option; NRI reach already works; documented the NCR exclusion trade-off | Leads-Search-6 |
+| 12 | Added second RSA (ad 817528620478) with NRI/WhatsApp/sector copy; fixed a phone-number-in-ad-text policy violation | Leads-Search-6 |
+| 13 | Re-included Unknown age (was wrongly excluded); 18-24, 65+, Female exclusions verified intact | Ad group interlinkproperties.in |
+| 14 | Turned off 7 dangerous auto-apply recommendation types | Account |
+| 15 | Reviewed recommendations, applied none (all upsells) | Account |
+
+Nothing was deleted in this session either. New delete-candidates for Himank:
+none beyond the part-1 list.
+
+### User-side items after part 2
+
+1. The phone-on-cellular WhatsApp test is now **optional**: this session proved
+   the full pipeline from a desktop Chrome (both key events visible in GA4
+   Realtime). Still a nice independent confirmation.
+2. GA4 standard reports and the two Ads conversion actions should start
+   showing data by about 21 July. If "Interlink Properties (web) clicks_call /
+   click_whatsapp" still say "Awaiting conversions" after 22 July, flag it.
+3. Decide on the NCR exclusion trade-off (section 11) once conversion data
+   shows where leads come from.
+4. Optional: upload a business logo in Google Ads (recommendation), and
+   verify the advertiser identity so the real business name shows instead of
+   a URL-derived placeholder.
