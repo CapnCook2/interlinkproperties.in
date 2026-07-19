@@ -105,6 +105,35 @@ GA4 website actions are the ones that were dark, and they are the ones fixed abo
 The two "Smart campaign ..." actions are system-locked leftovers from a Smart
 campaign and cannot be edited.
 
+### 4. Added four sitelinks at account level
+
+Google's own recommendation on the account was "add at least six sitelinks"
+(estimated +2% optimisation score). Leads-Search-6 had only two (Reviews and
+Photos, both pointing at Google Maps).
+
+Added four new sitelinks at **account level**, so they serve on every campaign
+including any created later, rather than being tied to one campaign:
+
+| Sitelink text | Description lines | Final URL |
+|---|---|---|
+| Current Listings | Flats, plots and houses / See available properties | https://interlinkproperties.in/#listings |
+| Areas We Cover | Sectors across Faridabad / Find your preferred area | https://interlinkproperties.in/#areas |
+| Our Services | Buying and selling help / Guidance at every step | https://interlinkproperties.in/#services |
+| Contact Us | Call or WhatsApp us / Speak to our team today | https://interlinkproperties.in/#contact |
+
+The URLs use anchors that genuinely exist in `website/index.html`. Copy avoids em
+dashes and makes no claims that the site does not already support (no invented
+opening hours, no invented guarantees). Sitelink count went from 4 to 8, verified
+in the assets table.
+
+### 5. Verified: no Google forwarding numbers anywhere
+
+Every campaign has a call asset, and all of them use the real number
+**9899014501**. The "Add call" dialog also confirmed **call reporting is off**
+for the account, with Google prompting to turn it on. Call reporting is the
+feature that substitutes a Google forwarding number, so leaving it off is
+correct and deliberate for this account. Do not enable it.
+
 ---
 
 ## Findings in the Google Ads account (audit in progress)
@@ -148,14 +177,57 @@ Issues identified so far:
 
 ---
 
+## Keyword and search term analysis
+
+The account has **326 keywords** and **1,317 search terms** in the last 30 days,
+and **290 negative keywords** already in place, so the negative list is already
+substantial. Nearly all spend history belongs to the now-paused "Interlink
+Properties Call Ads", which used **broad match on everything**.
+
+Where the money went (30 days), worst to best cost per click:
+
+| Search term / keyword | CPC | Note |
+|---|---|---|
+| magicbricks (exact, **added as a keyword**) | INR 51.75 | Property portal brand. Wrong intent, most expensive click in the account |
+| plots in faridabad (exact) | INR 41.20 | Expensive, only 8.00% CTR |
+| plot in faridabad (close variant) | INR 25.23 | 5.88% CTR |
+| "real estate" (phrase) | INR 24.73 | Low Quality Score, 19 impressions and 0 clicks |
+| properties for sale (broad) | INR 20.77 | Generic, national intent |
+| property sites in india (broad) | INR 20.26 | Wrong intent, people want portals |
+| property dealer faridabad | INR 17.45 | |
+| homes for sale (broad) | INR 10.62 | |
+| flats in faridabad (broad) | INR 6.07 | Workhorse: 233 clicks, 14.38% CTR |
+| property dealer near me | INR 4.20 | 14.44% CTR |
+| homes near me (broad) | INR 3.36 | 14.61% CTR |
+| **sector 21 faridabad** | **INR 1.48** | **68.29% CTR**, the single best term in the account |
+
+The pattern is unambiguous: **hyper-local, sector-level and "near me" searches are
+cheap and engage strongly; generic national real-estate terms and portal brand
+names are expensive and do not convert.** "sector 21 faridabad" got a 68% CTR at
+under INR 1.50 a click, while "magicbricks" cost INR 51.75 for one click.
+
+Also seen: `kala malhotra property dealer` (a competitor's name) took 20
+impressions and 0 clicks.
+
+Note: `Rent` is set as a negative keyword. **Confirmed correct by Himank: no
+rentals.** Leave it in place.
+
+---
+
 ## Deletions for Himank to do (nothing deleted by me)
 
 - Two orphaned GA4 properties named "Interlink Properties" under the **Cakewalk**
   account (546058021 and 546148340), already struck through / pending deletion.
   One of them holds the dead `G-1SH3KXHGCV` stream. Safe to remove once you have
   confirmed the new pipeline reports data.
-- Possible duplicate conversion actions under the "Contact" goal (5 primary
-  actions where 2 are expected). To be confirmed below before you remove any.
+- The keyword **`magicbricks`** in "Interlink Properties Call Ads". It is a
+  property-portal brand term that cost INR 51.75 for one click at 3.70% CTR.
+  It is currently harmless because that campaign is paused, but pause or remove
+  the keyword before ever re-enabling the campaign, and consider adding
+  `magicbricks`, `99acres`, `nobroker` and `housing.com` as negatives.
+- Two "Smart campaign ..." conversion actions under the Contact goal. They are
+  leftovers from an old Smart campaign, are system-locked (cannot be edited),
+  and sit at 0 conversions. Harmless, but they clutter the goal.
 
 ---
 
@@ -169,3 +241,42 @@ Issues identified so far:
   Google's smart bidding becomes reliable.
 - **Ongoing:** review the search terms report weekly for the first month and add
   negative keywords. Wasted clicks are the biggest controllable loss at this budget.
+
+### Bid strategy: decision and reasoning
+
+Leads-Search-6 was left on **Maximise conversions** rather than switched to
+Maximise clicks. Reasoning, since this was a genuine judgement call:
+
+- The account is not actually starved of conversion signal. `Clicks to call` has
+  42 conversions in 30 days, above the ~30/month threshold where Google's smart
+  bidding becomes reliable.
+- The campaign's engagement numbers are already good: 13.02% CTR at INR 6.46 CPC,
+  better than the paused campaign's 11.56% at INR 8.89.
+- It loses 0.00% of impression share to rank, so it is not being out-bid. Its only
+  constraint was budget, which the change above fixed directly.
+- Switching bid strategy resets the learning period. Switching now and switching
+  back in two weeks would cost two resets for no clear gain.
+
+**Revisit around 2 August 2026.** If `clicks_call` / `click_whatsapp` are landing
+in Ads by then and cost per conversion is stable, consider moving to Target CPA
+using the observed cost/conv as the starting target. If the campaign is spending
+the full INR 333 but conversions are flat, switch to Maximise clicks with a max
+CPC cap of about INR 10 and re-evaluate.
+
+### Where to spend the next hour of effort
+
+Ranked by expected return at this budget:
+
+1. **Mine the search terms weekly.** The data already shows sector-level searches
+   convert attention 10x cheaper than generic ones. Add generic and portal-brand
+   terms as negatives as they appear.
+2. **Add sector-specific keywords.** "sector 21 faridabad" got a 68% CTR at
+   INR 1.48. Build out phrase-match keywords for the sectors the business actually
+   covers (sector 15, 16, 21 and others per the site's areas section). This is the
+   single clearest opportunity visible in the data.
+3. **Move off broad match.** Every keyword in the old campaign was broad match,
+   which is what pulled in "magicbricks" and competitor names. Phrase and exact
+   match on a INR 333/day budget will waste far less.
+4. **Consider re-testing "Interlink Properties Call Ads"** only after conversions
+   are flowing, and only if Leads-Search-6 stops being budget-limited. Splitting
+   INR 333/day across two campaigns slows both campaigns' learning.
