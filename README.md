@@ -72,12 +72,14 @@ page only if organic Hindi traffic becomes a goal.
 ## Conversion tracking
 
 Google Ads conversions are click-to-call (`tel:`) and click-to-WhatsApp
-(`wa.me`) link clicks, tracked via Google Tag Manager; GA4 rides along for
-analytics. `website/index.html` has a guarded GTM loader (inert until the
-container ID is pasted in). All tag/trigger config lives in the GTM web UI,
-seeded from `tracking/gtm-container.json`. Setup and testing steps:
-`tracking/SETUP.md`. Deliberately no Google call tracking: it swaps the
-displayed phone number, and the real number must stay visible (see above).
+(`wa.me`) link clicks. Live pipeline: GTM loader in `website/index.html`
+(container GTM-TGTC6VC5) fires GA4 events `clicks_call` / `click_whatsapp`
+on those clicks; Google Ads imports the GA4 key events as its two "Contact"
+conversion actions. All tag/trigger config lives in the GTM web UI, mirrored
+in `tracking/gtm-container.json`. Architecture, IDs and verification:
+`tracking/SETUP.md`; decision history: `tracking/DECISIONS.md`. Deliberately
+no Google call tracking: it swaps the displayed phone number, and the real
+number must stay visible (see above).
 
 ## Notes
 

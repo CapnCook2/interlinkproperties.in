@@ -20,7 +20,7 @@
         "name": "GA4 Measurement ID",
         "type": "c",
         "parameter": [
-          { "type": "TEMPLATE", "key": "value", "value": "G-1SH3KXHGCV" }
+          { "type": "TEMPLATE", "key": "value", "value": "G-MSHD09RL53" }
         ]
       }
     ],
