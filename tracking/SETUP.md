@@ -14,7 +14,7 @@ site (GitHub Pages)
             ├─ Conversion Linker (stores gclid, fires on All Pages)
             ├─ GA4 Event clicks_call     ← Click URL starts with "tel:"
             └─ GA4 Event click_whatsapp  ← Click URL contains "wa.me/"
-                 └─ GA4 property G-1SH3KXHGCV (Interlink Properties, 256366131)
+                 └─ GA4 property G-MSHD09RL53 (Interlink Properties, 256366131)
                       └─ key events clicks_call / click_whatsapp
                            └─ imported by Google Ads 515-222-6123 as the two
                               "Contact" conversion actions (both Primary)
@@ -37,7 +37,7 @@ actions were created from them. The GTM tag event names MUST match exactly.
 | Thing | Value |
 |---|---|
 | GTM container | GTM-TGTC6VC5 |
-| GA4 property | Interlink Properties, 256366131, stream G-1SH3KXHGCV |
+| GA4 property | Interlink Properties, 256366131, stream 15282859457, G-MSHD09RL53 |
 | Ads account | 515-222-6123 (conversion id 816057246, unused now) |
 
 ## Verifying it works

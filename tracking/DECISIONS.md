@@ -88,3 +88,31 @@ Open items:
 - Optional: rename GA4 property from "Property 1"; link GA4 ↔ Ads product
   link for remarketing audiences; review call assets if the no-forwarding-
   number principle should extend to the ads themselves.
+
+---
+
+## CORRECTION (2026-07-19): the pipeline above was never actually live
+
+Everything above describes what was believed at the end of the previous session.
+One claim in it was wrong, and it invalidated the whole chain.
+
+`G-1SH3KXHGCV` was **not** a stream in property 256366131. It belonged to a
+different, deleted property under an unrelated Google Analytics account
+("Cakewalk"). Property 256366131 had no website data stream at all, only an
+auto-created Google Business Profile stream for a maps.google.com URL. So the
+site was firing events correctly, into a property that no longer existed, while
+the property Google Ads imports from received nothing. GA4 reported "No data
+received from your website yet" and every campaign showed 0 conversions.
+
+Why the earlier verification did not catch it: every check performed was a check
+that the *tag* was correct, not that the *destination* was. Tag Assistant
+confirms tags fire, the served `gtm.js` confirms the ID is present, and a `curl`
+to `/g/collect` returns 204 for any syntactically valid measurement ID, whether
+or not it belongs to a live property. None of those tests can distinguish a good
+ID from a dead one. **The missing check was simply opening the GA4 property and
+confirming the stream exists there.**
+
+Fixed on 2026-07-19: created web stream 15282859457 (`G-MSHD09RL53`) in property
+256366131, repointed the GTM variable, published Version 3. See
+`ADS-TRACKER.md` for that session's full record. The `G-1SH3KXHGCV` references
+above are left in place deliberately, as the record of what went wrong.
