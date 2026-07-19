@@ -67,6 +67,44 @@ wa.me            1
 GA4 key events `clicks_call` and `click_whatsapp` already exist in property
 256366131 and are starred as key events, so no change was needed there.
 
+### 2. Brought spend to the INR 333/day target and concentrated it
+
+- **Paused** `Leads-Performance Max-3` (was enabled at INR 200/day). It had
+  produced 0 impressions and 0 spend. Performance Max is a poor fit for this
+  account: it needs conversion history it does not have, and it scatters a small
+  local budget across Display/YouTube/Discover, where call intent is lowest.
+  Paused, not removed.
+- **Raised** `Leads-Search-6` from INR 300/day to **INR 333/day**. It is the only
+  campaign now serving. It loses 88.36% of impression share to budget and 0.00%
+  to rank, meaning it already wins the auctions it enters and is purely
+  money-limited, so extra budget converts directly into more traffic at its
+  current INR 6.46 CPC.
+
+Result: **Total: Account = INR 333.00/day**, exactly on target, with one enabled
+campaign. Verified in the campaigns table.
+
+### 3. Conversion actions reviewed (no changes yet)
+
+The "Contact" goal holds 5 primary conversion actions:
+
+| Action | Source | Conv. (30d) | Status |
+|---|---|---|---|
+| Clicks to call | Google hosted | **42.00** (value 31,000) | Active |
+| Interlink Properties (web) click_whatsapp | Website (GA4) | 0 | Awaiting conversions |
+| Interlink Properties (web) clicks_call | Website (GA4) | 0 | Awaiting conversions |
+| Smart campaign ad clicks to call | Call from Ads | 0 | Awaiting conversions |
+| Smart campaign map clicks to call | Google hosted | 0 | Awaiting conversions |
+
+Important correction to the earlier assumption: the account was **not** completely
+blind. `Clicks to call` is a Google-hosted action that tracks clicks on the "Call"
+button on location-based ads, and it has recorded 42 conversions, most recently
+17 Jul 2026. It needs no number swapping (it counts a click on the button showing
+the real number), so it is consistent with the no-forwarding-number rule. The two
+GA4 website actions are the ones that were dark, and they are the ones fixed above.
+
+The two "Smart campaign ..." actions are system-locked leftovers from a Smart
+campaign and cannot be edited.
+
 ---
 
 ## Findings in the Google Ads account (audit in progress)
