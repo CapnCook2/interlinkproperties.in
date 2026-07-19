@@ -7,3 +7,6 @@ office photos/
 logo.jpg
 visitng-card-*.png
 questions-for-dad.md
+
+# JetBrains IDE settings (local only)
+.idea/
