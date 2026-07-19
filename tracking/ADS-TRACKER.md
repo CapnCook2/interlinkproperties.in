@@ -175,6 +175,52 @@ Issues identified so far:
    **5 primary conversion actions**, which looks like duplicates from repeated
    setup attempts. Under review.
 
+### 6. Fixed a missing day in the ad schedule
+
+`Leads-Search-6` was scheduled for **Mondays, Tuesdays, Wednesdays, Fridays,
+Saturdays and Sundays, 09:00 to 22:00. Thursday was missing entirely**, so the
+campaign did not run one day in seven, roughly 14% of the week, for no reason.
+
+This was a mistake rather than a deliberate closure: the site states
+"Open daily: 10:00 AM to 7:00 PM" and the JSON-LD says `Mo-Su 10:00-19:00`, so
+the business trades on Thursdays. Opening the schedule editor confirmed the
+intent was a single "All days 09:00 to 22:00" rule that had lost a day.
+
+Re-saved the schedule as **All days, 09:00 to 22:00**. Verified: the ad schedule
+table now returns 21 rows, which is 3 campaigns x 7 days, where the same view
+previously returned 20.
+
+**Open question for Himank (deliberate, not changed):** the ad schedule runs
+09:00 to 22:00 but the business is open 10:00 to 19:00. Ads therefore serve for
+one hour before opening and three hours after closing. That is not necessarily
+waste, because a WhatsApp message sent at 21:00 can be answered next morning,
+but a *phone call* at 21:00 rings an empty office and the click is still paid
+for. Options: leave as is to maximise WhatsApp volume, or narrow to roughly
+09:00 to 20:00 to cut the deadest hours. Worth deciding once the new conversion
+data shows which of call versus WhatsApp dominates by hour.
+
+### 7. Ads reviewed
+
+| Ad | Campaign | Type | Status | Ad strength |
+|---|---|---|---|---|
+| 4 x "Call 9899014501 ..." | Interlink Properties Call Ads | Call ad | **Not eligible: "Update to call assets"** | n/a |
+| Property in Faridabad | Interlink Properties Web Ads 2 | Responsive display | Not eligible (campaign paused) | Good |
+| Buy & Sell Property Now ... | Leads-Search-6 | Responsive search | **Eligible** | Good |
+
+Two things worth knowing:
+
+1. **The four legacy call-only ads are dead.** They are marked "Not eligible:
+   Update to call assets" because Google retired call-only ads in favour of call
+   assets. These were the historic workhorses (1,766 / 1,122 / 814 / 478
+   impressions at 9.58% to 14.02% CTR). Even if "Interlink Properties Call Ads"
+   were re-enabled tomorrow, **those ads would not serve**. That campaign would
+   need new responsive search ads first. This materially changes the case for
+   re-enabling it.
+2. **Leads-Search-6 has exactly one responsive search ad**, ad strength "Good",
+   with 15 headlines and 4 descriptions, so the asset counts are already maxed.
+   A second RSA in the ad group would give Google something to test against,
+   which is the normal next step once there is traffic.
+
 ---
 
 ## Keyword and search term analysis
@@ -279,4 +325,41 @@ Ranked by expected return at this budget:
    match on a INR 333/day budget will waste far less.
 4. **Consider re-testing "Interlink Properties Call Ads"** only after conversions
    are flowing, and only if Leads-Search-6 stops being budget-limited. Splitting
-   INR 333/day across two campaigns slows both campaigns' learning.
+   INR 333/day across two campaigns slows both campaigns' learning. Note that its
+   four ads are call-only ads and are no longer eligible to serve, so re-enabling
+   it requires writing new responsive search ads first.
+5. **Add a second responsive search ad** to Leads-Search-6 once it has traffic,
+   so Google has something to test the current ad against.
+
+---
+
+## Verification checklist for Himank
+
+Things worth confirming yourself, with what to expect:
+
+1. **Tracking end to end.** From a phone on mobile data (not your own Chrome,
+   which has an ad blocker that suppresses Google measurement calls and even
+   blocked parts of the Ads console during this session), open
+   interlinkproperties.in and tap the WhatsApp button. Within seconds
+   `click_whatsapp` should appear in GA4 Realtime for property 256366131. This is
+   the one piece of the chain that has never been proven with a clean client.
+2. **Google Ads conversion import.** Within about 24 hours of the first real
+   event, "Interlink Properties (web) clicks_call" and
+   "Interlink Properties (web) click_whatsapp" should move from
+   "Awaiting conversions" to recording. Import lag is up to a few hours per event.
+3. **Spend.** Daily spend should now sit at or under INR 333. Only Leads-Search-6
+   is enabled.
+4. **Thursday.** Confirm the campaign serves this Thursday.
+
+## Summary of what changed in this session
+
+| # | Change | Where |
+|---|---|---|
+| 1 | Created web data stream G-MSHD09RL53 | GA4 property 256366131 |
+| 2 | Repointed GTM variable from dead G-1SH3KXHGCV, published Version 3 | GTM GTM-TGTC6VC5 |
+| 3 | Paused Leads-Performance Max-3 (was INR 200/day, 0 impressions) | Google Ads |
+| 4 | Raised Leads-Search-6 budget INR 300 to INR 333/day | Google Ads |
+| 5 | Added 4 account-level sitelinks (4 to 8 total) | Google Ads |
+| 6 | Restored missing Thursday in the ad schedule | Google Ads |
+
+Nothing was deleted.
