@@ -8,41 +8,11 @@
     "container": {
       "accountId": "0",
       "containerId": "0",
-      "publicId": "GTM-XXXXXXX",
+      "publicId": "GTM-TGTC6VC5",
       "name": "Interlink Properties",
       "usageContext": ["WEB"]
     },
     "variable": [
-      {
-        "accountId": "0",
-        "containerId": "0",
-        "variableId": "1",
-        "name": "Ads Conversion ID",
-        "type": "c",
-        "parameter": [
-          { "type": "TEMPLATE", "key": "value", "value": "AW-816057246" }
-        ]
-      },
-      {
-        "accountId": "0",
-        "containerId": "0",
-        "variableId": "2",
-        "name": "Ads Label - Call Click",
-        "type": "c",
-        "parameter": [
-          { "type": "TEMPLATE", "key": "value", "value": "REPLACE_ME" }
-        ]
-      },
-      {
-        "accountId": "0",
-        "containerId": "0",
-        "variableId": "3",
-        "name": "Ads Label - WhatsApp Click",
-        "type": "c",
-        "parameter": [
-          { "type": "TEMPLATE", "key": "value", "value": "REPLACE_ME" }
-        ]
-      },
       {
         "accountId": "0",
         "containerId": "0",
@@ -64,7 +34,7 @@
         "accountId": "0",
         "containerId": "0",
         "triggerId": "10",
-        "name": "Click - Phone (tel:) link",
+        "name": "Click - Phone (tel) link",
         "type": "LINK_CLICK",
         "filter": [
           {
@@ -139,39 +109,11 @@
       {
         "accountId": "0",
         "containerId": "0",
-        "tagId": "22",
-        "name": "Ads Conversion - Call Click",
-        "type": "awct",
-        "parameter": [
-          { "type": "BOOLEAN", "key": "enableConversionLinker", "value": "true" },
-          { "type": "TEMPLATE", "key": "conversionId", "value": "{{Ads Conversion ID}}" },
-          { "type": "TEMPLATE", "key": "conversionLabel", "value": "{{Ads Label - Call Click}}" }
-        ],
-        "firingTriggerId": ["10"],
-        "tagFiringOption": "ONCE_PER_EVENT"
-      },
-      {
-        "accountId": "0",
-        "containerId": "0",
-        "tagId": "23",
-        "name": "Ads Conversion - WhatsApp Click",
-        "type": "awct",
-        "parameter": [
-          { "type": "BOOLEAN", "key": "enableConversionLinker", "value": "true" },
-          { "type": "TEMPLATE", "key": "conversionId", "value": "{{Ads Conversion ID}}" },
-          { "type": "TEMPLATE", "key": "conversionLabel", "value": "{{Ads Label - WhatsApp Click}}" }
-        ],
-        "firingTriggerId": ["11"],
-        "tagFiringOption": "ONCE_PER_EVENT"
-      },
-      {
-        "accountId": "0",
-        "containerId": "0",
         "tagId": "24",
-        "name": "GA4 Event - call_click",
+        "name": "GA4 Event - clicks_call",
         "type": "gaawe",
         "parameter": [
-          { "type": "TEMPLATE", "key": "eventName", "value": "call_click" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "clicks_call" },
           { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{GA4 Measurement ID}}" }
         ],
         "firingTriggerId": ["10"],
@@ -181,10 +123,10 @@
         "accountId": "0",
         "containerId": "0",
         "tagId": "25",
-        "name": "GA4 Event - whatsapp_click",
+        "name": "GA4 Event - click_whatsapp",
         "type": "gaawe",
         "parameter": [
-          { "type": "TEMPLATE", "key": "eventName", "value": "whatsapp_click" },
+          { "type": "TEMPLATE", "key": "eventName", "value": "click_whatsapp" },
           { "type": "TEMPLATE", "key": "measurementIdOverride", "value": "{{GA4 Measurement ID}}" }
         ],
         "firingTriggerId": ["11"],
