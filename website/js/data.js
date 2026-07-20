@@ -33,7 +33,7 @@ const I18N = {
     heroSub: "HUDA plots, kothis, builder floors, commercial and industrial property. We handle your deal end to end: shortlisting, site visits, negotiation, paperwork and registry.",
     heroBadge: "Our office · HUDA Market area",
     revChip: "Read our client reviews on Google",
-    statSince: "serving Faridabad since", statSectors: "all sectors covered", statRev: "reviews on Google", statGst: "registered firm",
+    statSince: "serving Faridabad since", statSectors: "all sectors covered", statRev: "reviews on Google",
     svcTitle: "What We Deal In",
     svc1: "HUDA Residential Plots", svc1p: "Plots across the HUDA sectors of Faridabad, with honest guidance on prevailing market rates.",
     svc2: "Kothis & Builder Floors", svc2p: "Independent houses and floors for purchase and sale in established sectors.",
@@ -56,7 +56,6 @@ const I18N = {
     conTitle: "Visit or Call Us", conTalk: "Talk to Us", conHoursLbl: "Open daily:", conHours: "10:00 AM to 7:00 PM",
     conAddr1: "12-15 Dividing Road (before SRS Mall turn)",
     footLine: "© Interlink Properties, Faridabad. Serving Faridabad and Greater Faridabad since 2009.",
-    footGst: "GST Registered Firm · GSTIN 06AAGPN3961R1Z1",
     stickyCall: "Call Now", stickyWa: "WhatsApp"
   },
   hi: {
@@ -66,7 +65,7 @@ const I18N = {
     heroSub: "हुडा प्लॉट, कोठी, बिल्डर फ्लोर, कमर्शियल और इंडस्ट्रियल प्रॉपर्टी। शॉर्टलिस्टिंग से लेकर साइट विज़िट, मोल-भाव, कागज़ात और रजिस्ट्री तक, आपकी डील की पूरी ज़िम्मेदारी हमारी।",
     heroBadge: "हमारा ऑफिस · हुडा मार्केट",
     revChip: "गूगल पर हमारे ग्राहकों के रिव्यू पढ़ें",
-    statSince: "से फरीदाबाद की सेवा में", statSectors: "सभी सेक्टरों में काम", statRev: "गूगल पर रिव्यू", statGst: "रजिस्टर्ड फर्म",
+    statSince: "से फरीदाबाद की सेवा में", statSectors: "सभी सेक्टरों में काम", statRev: "गूगल पर रिव्यू",
     svcTitle: "हम क्या करते हैं",
     svc1: "हुडा रिहायशी प्लॉट", svc1p: "फरीदाबाद के हुडा सेक्टरों में प्लॉट, बाज़ार भाव की सही और ईमानदार सलाह के साथ।",
     svc2: "कोठी और बिल्डर फ्लोर", svc2p: "जाने-माने सेक्टरों में मकान और फ्लोर, खरीदने और बेचने के लिए।",
@@ -89,7 +88,6 @@ const I18N = {
     conTitle: "मिलें या कॉल करें", conTalk: "हमसे बात करें", conHoursLbl: "रोज़ खुला:", conHours: "सुबह 10 बजे से शाम 7 बजे तक",
     conAddr1: "12-15 डिवाइडिंग रोड (SRS मॉल टर्न से पहले)",
     footLine: "© इंटरलिंक प्रॉपर्टीज़, फरीदाबाद। 2009 से फरीदाबाद और ग्रेटर फरीदाबाद की सेवा में।",
-    footGst: "GST रजिस्टर्ड फर्म · GSTIN 06AAGPN3961R1Z1",
     stickyCall: "अभी कॉल करें", stickyWa: "व्हाट्सऐप"
   }
 };
