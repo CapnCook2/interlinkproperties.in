@@ -8,11 +8,11 @@
 // CURRENT INVENTORY: real listings. Update this array as inventory changes.
 // The page shows a random 4 on each load.
 const LISTINGS = [
-  { t: "plot", size: "350 sq yd", area: "Sector 8 area",    price: "₹4.25 Cr", hook_en: "Genuine listing, enquire today",   hook_hi: "असली लिस्टिंग, आज ही पूछताछ करें" },
-  { t: "plot", size: "250 sq yd", area: "Sector 62 area",   price: "₹3.60 Cr", hook_en: "Good investment opportunity",      hook_hi: "अच्छा निवेश अवसर" },
-  { t: "plot", size: "350 sq yd", area: "Sector 14 area",   price: "₹9.50 Cr", hook_en: "Prime location, enquire now",      hook_hi: "प्राइम लोकेशन, अभी पूछताछ करें" },
-  { t: "shop", size: "Booth",     area: "Sector 19 Market", price: "₹1.15 Cr", hook_en: "Ready for immediate use",          hook_hi: "तुरंत उपयोग के लिए तैयार" },
-  { t: "plot", size: "160 sq yd", area: "Sector 65 area",   price: "₹2.60 Cr", hook_en: "Available now, call for details",  hook_hi: "अभी उपलब्ध, जानकारी के लिए कॉल करें" }
+  { t: "plot", size_en: "350 sq yd", size_hi: "350 गज", area_en: "Sector 8 area",    area_hi: "सेक्टर 8 क्षेत्र",  price: "₹4.25 Cr", hook_en: "Genuine listing, enquire today",   hook_hi: "असली लिस्टिंग, आज ही पूछताछ करें" },
+  { t: "plot", size_en: "250 sq yd", size_hi: "250 गज", area_en: "Sector 62 area",   area_hi: "सेक्टर 62 क्षेत्र", price: "₹3.60 Cr", hook_en: "Good investment opportunity",      hook_hi: "अच्छा निवेश अवसर" },
+  { t: "plot", size_en: "350 sq yd", size_hi: "350 गज", area_en: "Sector 14 area",   area_hi: "सेक्टर 14 क्षेत्र", price: "₹9.50 Cr", hook_en: "Prime location, enquire now",      hook_hi: "प्राइम लोकेशन, अभी पूछताछ करें" },
+  { t: "shop", size_en: "Booth",     size_hi: "बूथ",     area_en: "Sector 19 Market", area_hi: "सेक्टर 19 मार्केट", price: "₹1.15 Cr", hook_en: "Ready for immediate use",          hook_hi: "तुरंत उपयोग के लिए तैयार" },
+  { t: "plot", size_en: "160 sq yd", size_hi: "160 गज", area_en: "Sector 65 area",   area_hi: "सेक्टर 65 क्षेत्र", price: "₹2.60 Cr", hook_en: "Available now, call for details",  hook_hi: "अभी उपलब्ध, जानकारी के लिए कॉल करें" }
 ];
 
 const TYPE_LABELS = {
@@ -53,6 +53,9 @@ const I18N = {
     revTitle: "What Our Clients Say", revSrc: "Google Review", revSrc2: "Google Review", revSrc3: "Google Review",
     revAll: "Read all our reviews on Google →",
     areaTitle: "Areas We Serve", areaGF: "Greater Faridabad", areaAll: "All of Faridabad",
+    areaS14: "Sector 14", areaS15: "Sector 15", areaS15A: "Sector 15A", areaS16: "Sector 16",
+    areaS17: "Sector 17", areaS21: "Sector 21", areaS28: "Sector 28", areaS29: "Sector 29",
+    areaHuda: "HUDA Sectors", areaNeharpar: "Neharpar",
     conTitle: "Visit or Call Us", conTalk: "Talk to Us", conHoursLbl: "Open daily:", conHours: "10:00 AM to 7:00 PM",
     conAddr1: "12-15 Dividing Road (before SRS Mall turn)",
     footLine: "© Interlink Properties, Faridabad. Serving Faridabad and Greater Faridabad since 2009.",
@@ -85,6 +88,9 @@ const I18N = {
     revTitle: "हमारे ग्राहक क्या कहते हैं", revSrc: "गूगल रिव्यू", revSrc2: "गूगल रिव्यू", revSrc3: "गूगल रिव्यू",
     revAll: "गूगल पर सभी रिव्यू पढ़ें →",
     areaTitle: "हमारे कार्यक्षेत्र", areaGF: "ग्रेटर फरीदाबाद", areaAll: "पूरा फरीदाबाद",
+    areaS14: "सेक्टर 14", areaS15: "सेक्टर 15", areaS15A: "सेक्टर 15ए", areaS16: "सेक्टर 16",
+    areaS17: "सेक्टर 17", areaS21: "सेक्टर 21", areaS28: "सेक्टर 28", areaS29: "सेक्टर 29",
+    areaHuda: "हुडा सेक्टर", areaNeharpar: "नेहरपार",
     conTitle: "मिलें या कॉल करें", conTalk: "हमसे बात करें", conHoursLbl: "रोज़ खुला:", conHours: "सुबह 10 बजे से शाम 7 बजे तक",
     conAddr1: "12-15 डिवाइडिंग रोड (SRS मॉल टर्न से पहले)",
     footLine: "© इंटरलिंक प्रॉपर्टीज़, फरीदाबाद। 2009 से फरीदाबाद और ग्रेटर फरीदाबाद की सेवा में।",
