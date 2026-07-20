@@ -28,7 +28,7 @@ const TYPE_LABELS = {
 const I18N = {
   en: {
     callNow: "Call Now", callNow2: "Call Now", waBtn: "WhatsApp Us", waBtn2: "WhatsApp",
-    tagline: "buy | sell", taglineFoot: "buy | sell",
+    tagline: "buy   •   sell", taglineFoot: "buy   •   sell",
     heroTitle: "Trusted Property Dealer in Faridabad Since 2009",
     heroSub: "HUDA plots, kothis, builder floors, commercial and industrial property. We handle your deal end to end: shortlisting, site visits, negotiation, paperwork and registry.",
     heroBadge: "Our office · HUDA Market area",
@@ -63,7 +63,7 @@ const I18N = {
   },
   hi: {
     callNow: "अभी कॉल करें", callNow2: "अभी कॉल करें", waBtn: "व्हाट्सऐप करें", waBtn2: "व्हाट्सऐप",
-    tagline: "खरीदें | बेचें", taglineFoot: "खरीदें | बेचें",
+    tagline: "खरीदें   •   बेचें", taglineFoot: "खरीदें   •   बेचें",
     heroTitle: "फरीदाबाद में 2009 से भरोसेमंद प्रॉपर्टी डीलर",
     heroSub: "हुडा प्लॉट, कोठी, बिल्डर फ्लोर, कमर्शियल और इंडस्ट्रियल प्रॉपर्टी। शॉर्टलिस्टिंग से लेकर साइट विज़िट, मोल-भाव, कागज़ात और रजिस्ट्री तक, आपकी डील की पूरी ज़िम्मेदारी हमारी।",
     heroBadge: "हमारा ऑफिस · हुडा मार्केट",
