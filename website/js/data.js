@@ -12,7 +12,13 @@ const LISTINGS = [
   { t: "plot", size_en: "250 sq yd", size_hi: "250 गज", area_en: "Sector 62 area",   area_hi: "सेक्टर 62", price: "₹3.60 Cr", hook_en: "Good investment opportunity",      hook_hi: "अच्छा निवेश अवसर" },
   { t: "plot", size_en: "350 sq yd", size_hi: "350 गज", area_en: "Sector 14 area",   area_hi: "सेक्टर 14", price: "₹9.50 Cr", hook_en: "Prime location, enquire now",      hook_hi: "प्राइम लोकेशन, अभी पूछताछ करें" },
   { t: "shop", size_en: "Booth",     size_hi: "बूथ",     area_en: "Sector 19 Market", area_hi: "सेक्टर 19 मार्केट", price: "₹1.15 Cr", hook_en: "Ready for immediate use",          hook_hi: "तुरंत उपयोग के लिए तैयार" },
-  { t: "plot", size_en: "160 sq yd", size_hi: "160 गज", area_en: "Sector 65 area",   area_hi: "सेक्टर 65", price: "₹2.60 Cr", hook_en: "Available now, call for details",  hook_hi: "अभी उपलब्ध, जानकारी के लिए कॉल करें" }
+  { t: "plot", size_en: "160 sq yd", size_hi: "160 गज", area_en: "Sector 65 area",   area_hi: "सेक्टर 65", price: "₹2.60 Cr", hook_en: "Available now, call for details",  hook_hi: "अभी उपलब्ध, जानकारी के लिए कॉल करें" },
+  { t: "ind",  size_en: "1 Acre",     size_hi: "1 एकड़",  area_en: "Sector 24 area",   area_hi: "सेक्टर 24", price: "₹30 Cr",   hook_en: "Large industrial plot, rare opportunity", hook_hi: "बड़ा इंडस्ट्रियल प्लॉट, दुर्लभ अवसर" },
+  { t: "floor", size_en: "250 sq yd", size_hi: "250 गज", area_en: "Sector 28 area",   area_hi: "सेक्टर 28", price: "₹2.80 Cr", hook_en: "Spacious builder floor, enquire today", hook_hi: "बड़ा बिल्डर फ्लोर, आज ही पूछताछ करें" },
+  { t: "floor", size_en: "250 sq yd", size_hi: "250 गज", area_en: "Sector 16 area",   area_hi: "सेक्टर 16", price: "₹3 Cr",    hook_en: "Well located floor, ready to move",     hook_hi: "अच्छी लोकेशन पर फ्लोर, रहने के लिए तैयार" },
+  { t: "shop", size_en: "Booth",     size_hi: "बूथ",     area_en: "Sector 17 Market", area_hi: "सेक्टर 17 मार्केट", price: "₹1.40 Cr", hook_en: "Prime market booth, high footfall",     hook_hi: "प्राइम मार्केट बूथ, अच्छी भीड़" },
+  { t: "shop", size_en: "Booth",     size_hi: "बूथ",     area_en: "Sector 46 Market", area_hi: "सेक्टर 46 मार्केट", price: "₹1.35 Cr", hook_en: "Good investment, call for details",     hook_hi: "अच्छा निवेश, जानकारी के लिए कॉल करें" },
+  { t: "floor", size_en: "250 sq yd", size_hi: "250 गज", area_en: "Sector 21D area",  area_hi: "सेक्टर 21डी", price: "₹2.70 Cr", hook_en: "Genuine listing, enquire now",          hook_hi: "असली लिस्टिंग, अभी पूछताछ करें" }
 ];
 
 const TYPE_LABELS = {
