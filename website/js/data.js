@@ -8,7 +8,7 @@
 // CURRENT INVENTORY: real listings. Update this array as inventory changes.
 // The page shows a random 4 on each load.
 const LISTINGS = [
-  { t: "plot", size_en: "350 sq yd", size_hi: "350 गज", area_en: "Sector 8 area",    area_hi: "सेक्टर 8",  price: "₹4.25 Cr", hook_en: "Genuine listing, enquire today",   hook_hi: "असली लिस्टिंग, आज ही पूछताछ करें" },
+  { t: "plot", size_en: "350 sq yd", size_hi: "350 गज", area_en: "Sector 8 area",    area_hi: "सेक्टर 8",  price: "₹4.25 Cr", hook_en: "Great deal, enquire today",   hook_hi: "असली लिस्टिंग, आज ही पूछताछ करें" },
   { t: "plot", size_en: "250 sq yd", size_hi: "250 गज", area_en: "Sector 62 area",   area_hi: "सेक्टर 62", price: "₹3.60 Cr", hook_en: "Good investment opportunity",      hook_hi: "अच्छा निवेश अवसर" },
   { t: "plot", size_en: "350 sq yd", size_hi: "350 गज", area_en: "Sector 14 area",   area_hi: "सेक्टर 14", price: "₹9.50 Cr", hook_en: "Prime location, enquire now",      hook_hi: "प्राइम लोकेशन, अभी पूछताछ करें" },
   { t: "shop", size_en: "Booth",     size_hi: "बूथ",     area_en: "Sector 19 Market", area_hi: "सेक्टर 19 मार्केट", price: "₹1.15 Cr", hook_en: "Ready for immediate use",          hook_hi: "तुरंत उपयोग के लिए तैयार" },
@@ -28,7 +28,7 @@ const TYPE_LABELS = {
 const I18N = {
   en: {
     callNow: "Call Now", callNow2: "Call Now", waBtn: "WhatsApp Us", waBtn2: "WhatsApp",
-    tagline: "buy   •   sell", taglineFoot: "buy   •   sell",
+    tagline: "buy  •  sell", taglineFoot: "buy  •  sell",
     heroTitle: "Trusted Property Dealer in Faridabad Since 2009",
     heroSub: "HUDA plots, kothis, builder floors, commercial and industrial property. We handle your deal end to end: shortlisting, site visits, negotiation, paperwork and registry.",
     heroBadge: "Our office · HUDA Market area",
