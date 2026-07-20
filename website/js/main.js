@@ -18,7 +18,7 @@ function renderListings() {
   grid.innerHTML = shown.map(l => `
     <article class="listing-card">
       <div class="tag">${TYPE_LABELS[l.t][lang]}</div>
-      <h3>${l.size} · ${l.area}</h3>
+      <h3>${lang === "hi" ? l.size_hi : l.size_en} · ${lang === "hi" ? l.area_hi : l.area_en}</h3>
       <p class="meta">${lang === "hi" ? l.hook_hi : l.hook_en}</p>
       <div class="price">${l.price}</div>
       <a class="btn btn-line" href="tel:+919899014501">${I18N[lang].listCta}</a>
