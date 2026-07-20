@@ -5,31 +5,14 @@
 // ============================================================
 
 // ---------- Listings ----------
-// SAMPLE INVENTORY: replace these 20 entries with vague versions of real
-// current listings before relying on them. Keep them non-identifiable on
-// purpose: general area only, size and price as ranges, no plot numbers or
-// exact roads. The page shows a random 4 on each load.
+// CURRENT INVENTORY: real listings. Update this array as inventory changes.
+// The page shows a random 4 on each load.
 const LISTINGS = [
-  { t: "plot",  size: "250 sq yd",   area: "Sector 15 area",        price: "₹4 - 4.8 Cr",   hook_en: "Corner plot, park facing",            hook_hi: "कॉर्नर प्लॉट, पार्क के सामने" },
-  { t: "plot",  size: "300 sq yd",   area: "Sector 16 area",        price: "₹5 - 6 Cr",     hook_en: "Wide road, east facing",              hook_hi: "चौड़ी सड़क, पूर्वमुखी" },
-  { t: "plot",  size: "160 sq yd",   area: "Sector 21 area",        price: "₹2.4 - 2.8 Cr", hook_en: "Near market and school",              hook_hi: "मार्केट और स्कूल के पास" },
-  { t: "plot",  size: "500 sq yd",   area: "Sector 17 area",        price: "₹12 - 15 Cr",   hook_en: "Prime block, clear title",            hook_hi: "प्राइम ब्लॉक, साफ़ टाइटल" },
-  { t: "plot",  size: "200 sq yd",   area: "Greater Faridabad",     price: "₹95 L - 1.1 Cr", hook_en: "Developing sector, good appreciation", hook_hi: "विकसित होता सेक्टर, अच्छी ग्रोथ" },
-  { t: "kothi", size: "250 sq yd",   area: "Sector 15A area",       price: "₹5 - 6 Cr",     hook_en: "Well maintained, double storey",      hook_hi: "अच्छी हालत, डबल स्टोरी" },
-  { t: "kothi", size: "350 sq yd",   area: "Sector 14 area",        price: "₹7.5 - 10 Cr",  hook_en: "Corner kothi, wide frontage",         hook_hi: "कॉर्नर कोठी, चौड़ा फ्रंट" },
-  { t: "kothi", size: "160 sq yd",   area: "Sector 29 area",        price: "₹3 - 3.5 Cr",   hook_en: "Ready to move, near park",            hook_hi: "रेडी टू मूव, पार्क के पास" },
-  { t: "kothi", size: "500 sq yd",   area: "Sector 17 area",        price: "₹15 - 20 Cr",   hook_en: "Prime sector, wide frontage",         hook_hi: "प्राइम सेक्टर, चौड़ा फ्रंट" },
-  { t: "floor", size: "3 BHK",       area: "Sector 15 area",        price: "₹1.1 - 1.3 Cr",  hook_en: "First floor, car parking",            hook_hi: "पहली मंज़िल, कार पार्किंग" },
-  { t: "floor", size: "3 BHK",       area: "Sector 16 area",        price: "₹1.2 - 1.4 Cr",  hook_en: "New construction, lift",              hook_hi: "नया निर्माण, लिफ्ट" },
-  { t: "floor", size: "2 BHK",       area: "Sector 21 area",        price: "₹70 - 85 L",     hook_en: "Gated street, sunny floor",           hook_hi: "गेटेड गली, हवादार फ्लोर" },
-  { t: "flat",  size: "3 BHK",       area: "Greater Faridabad",     price: "₹90 L - 1.1 Cr", hook_en: "Society with club and pool",          hook_hi: "क्लब और पूल वाली सोसाइटी" },
-  { t: "flat",  size: "2 BHK",       area: "Neharpar",              price: "₹55 - 65 L",     hook_en: "Ready possession, near school",       hook_hi: "रेडी पज़ेशन, स्कूल के पास" },
-  { t: "shop",  size: "SCF",         area: "HUDA Market area",      price: "₹1.8 - 2.2 Cr",  hook_en: "Running market, good footfall",       hook_hi: "चालू मार्केट, अच्छी ग्राहकी" },
-  { t: "shop",  size: "Booth",       area: "Sector 15 Market",      price: "₹80 - 95 L",     hook_en: "Main lane, rental income",            hook_hi: "मेन लेन, किराया आय" },
-  { t: "shop",  size: "Showroom",    area: "Mathura Road side",     price: "₹3.5 - 4.0 Cr",  hook_en: "Highway visibility",                  hook_hi: "हाईवे से दिखने वाला" },
-  { t: "ind",   size: "450 sq yd",   area: "Sector 24 side",        price: "₹2.4 - 2.8 Cr",  hook_en: "Industrial plot, wide approach",      hook_hi: "इंडस्ट्रियल प्लॉट, चौड़ा रास्ता" },
-  { t: "ind",   size: "1000 sq yd",  area: "Sector 58 side",        price: "₹3.8 - 4.4 Cr",  hook_en: "Shed with power connection",          hook_hi: "बिजली कनेक्शन के साथ शेड" }
-
+  { t: "plot", size: "350 sq yd", area: "Sector 8 area",    price: "₹4.25 Cr", hook_en: "Genuine listing, enquire today",   hook_hi: "असली लिस्टिंग, आज ही पूछताछ करें" },
+  { t: "plot", size: "250 sq yd", area: "Sector 62 area",   price: "₹3.60 Cr", hook_en: "Good investment opportunity",      hook_hi: "अच्छा निवेश अवसर" },
+  { t: "plot", size: "350 sq yd", area: "Sector 14 area",   price: "₹9.50 Cr", hook_en: "Prime location, enquire now",      hook_hi: "प्राइम लोकेशन, अभी पूछताछ करें" },
+  { t: "shop", size: "Booth",     area: "Sector 19 Market", price: "₹1.15 Cr", hook_en: "Ready for immediate use",          hook_hi: "तुरंत उपयोग के लिए तैयार" },
+  { t: "plot", size: "160 sq yd", area: "Sector 65 area",   price: "₹2.60 Cr", hook_en: "Available now, call for details",  hook_hi: "अभी उपलब्ध, जानकारी के लिए कॉल करें" }
 ];
 
 const TYPE_LABELS = {
