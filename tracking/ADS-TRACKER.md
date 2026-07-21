@@ -555,3 +555,51 @@ none beyond the part-1 list.
 4. Optional: upload a business logo in Google Ads (recommendation), and
    verify the advertiser identity so the real business name shows instead of
    a URL-derived placeholder.
+
+## 16. "Get directions" removed from bidding/reporting (2026-07-20)
+
+Himank flagged that a "Get directions" conversion goal was racking up a lot of
+conversions while he wants calls, not directions. Confirmed and fixed.
+
+**Diagnosis (from Goals > View all conversion actions, last 14 days):**
+
+| Conversion action | Source | Primary/Sec | In account goals | Conversions |
+|---|---|---|---|---|
+| Local actions - Directions | Google Business Profile | Primary | **Yes** | **123.00** |
+| Clicks to call | Google Business Profile | Primary | No | 31.00 |
+| Interlink (web) clicks_call | GA4 website | Primary | Yes | 2.00 |
+| Interlink (web) click_whatsapp | GA4 website | Primary | Yes | 2.00 |
+| Click to call | Call from Ads | Primary | Yes | 0.00 (call reporting off) |
+| Smart campaign map directions | GBP (locked) | Primary | Yes | 0.00 |
+
+The flood was **"Local actions - Directions" = 123 conversions**, an
+auto-created Business Profile action (created 10/09/2019) that counts every
+"Directions" tap on the map/local listing the ads surface. It sat in the
+account-default **"Get directions"** goal, which was **On** and used by **1 of
+4 campaigns** as an account-default goal, so Google's bidding was actively
+optimising toward directions and they inflated the Conversions column.
+
+**Fix:** Goals > Get directions goal > Edit settings > Account default toggle
+turned **Off**. The individual action's Primary/Secondary field is greyed out
+for Google-hosted local actions (managed at goal level), so the goal toggle is
+the correct lever. Preview confirmed Get directions dropped from **1 of 4 -> 0
+of 4 campaigns**; the 2 conversion actions were left intact ("No change" -
+nothing deleted, matches the pause-not-delete rule). Verified after save: goal
+card now reads "Campaigns 0 of 4". The campaign that was chasing directions now
+optimises only on the account-default Contact (calls + WhatsApp) and Phone call
+lead goals.
+
+**Recommendation, NOT yet done (needs Himank's call):** "Clicks to call"
+(Google Business Profile) has **31 real call-button clicks** but is **excluded**
+from account goals ("No"). These are genuine calls on the real displayed number
+(no forwarding/number-swap, so it does not violate the call-tracking
+constraint). Adding it to the Contact goal would feed 31 call signals into
+optimisation instead of ignoring them. Held off because it changes what bidding
+targets; flagging for a decision.
+
+**Auto-apply note:** an "auto-apply activity" banner reports one recommendation
+auto-applied between 13-19 Jul 2026 (before/around last session's auto-apply
+hardening). The change-history grid is a virtualised canvas that would not
+render its rows for reading; not chased further because all destructive
+auto-apply types are already Off (section 14). Himank can see the specific item
+via the banner's "View" link if curious.
